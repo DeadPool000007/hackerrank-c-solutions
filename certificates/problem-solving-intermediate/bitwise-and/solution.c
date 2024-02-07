@@ -1,29 +1,49 @@
-long countPairs(int arr_count, int* arr) 
+#include <stdio.h>
+#include <stdlib.h>
+long countPairs(int arr_count,int*arr)
 {
-	// Case 7 Hard Coded
-    if (arr[0] == 2048)
-        return 19999900000;
-        
-    long and_res = 0;
 
-    long res = 0;
+   /*   if(arr[0]==2048)
 
-    // loop through the array
+          return 1999990000;*/
 
-    for ( int i =0; i < arr_count-1; i++)
+    long and_res=0;
+    long res=0;
+
+    for(int i=0; i<arr_count-1; i++)
     {
-        for ( int j = i+1; j < arr_count; j++)
+
+        for(int j=i+1; j<arr_count; j++)
         {
-            and_res = arr[i] & arr[j];
-            
-            // If the number is a power of two, then only 1 bit will be set in its binary representation
-            // Zero is an exception 
-            if ( and_res && (!(and_res & (and_res-1))) )
+
+
+
+            and_res=arr[i]&arr[j];
+
+
+            if(and_res&&(!(and_res & (and_res-1))))
+
             {
-                res += 1;
+
+
+                    res+=1;
             }
-        }
+
+
+
     }
-            
-    return res;
+
+
+}
+return res;
+
+}
+
+int main()
+{
+    
+    int arr[]= {2048,7,2,8,3};
+
+    printf("%d",countPairs( 5,arr));
+    return 0;
 }
